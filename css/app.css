@@ -55,7 +55,7 @@ h1 {
     height: 125px;
     width: 125px;
     background: #2e3d49;
-    font-size: 0;
+    font-size: 45px;
     color: #ffffff;
     border-radius: 8px;
     cursor: pointer;
@@ -63,22 +63,42 @@ h1 {
     justify-content: center;
     align-items: center;
     box-shadow: 5px 2px 20px 0 rgba(46, 61, 73, 0.5);
+    transition: transform 1s;
+    transform-style: preserve-3d;
+    position: relative;
+}
+
+.deck .card .front, .deck .card .back {
+    border-radius: 8px;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    backface-visibility: hidden;
+}
+
+.deck .card .front {
+    border-radius: 8px;
+    background: #2e3d49;
+}
+
+.deck .card .back {
+    transform: rotateY( 180deg );
+}
+
+.deck .card .back i {
+    margin: 35px;
 }
 
 .deck .card.open {
-    transform: rotateY(0);
+    transform: rotateY( 180deg );
     background: #02b3e4;
     cursor: default;
 }
 
-.deck .card.show {
-    font-size: 33px;
-}
-
 .deck .card.match {
+    transform: rotateY( 180deg );
     cursor: default;
     background: #02ccba;
-    font-size: 33px;
 }
 
 /*
